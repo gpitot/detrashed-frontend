@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Authenticate from '../Authenticate';
 
 import CreateEvent from '../Interactions/create-event.js';
+import ListEvents from './list-events';
 
 class Home extends Component {
 
@@ -14,7 +15,7 @@ class Home extends Component {
         return (
             <Area>
                 <CreateEvent />
-
+                <ListEvents />
                 <Authenticate />
             </Area>
         )
