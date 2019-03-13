@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DiscItApi } from '../../../api/discit-api/DiscItApi';
+import { BackendApi } from '../../../api/backend-api';
 
 class LoginCallbackPage extends React.Component {
     componentDidMount() {
@@ -11,23 +11,24 @@ class LoginCallbackPage extends React.Component {
 
         const code = params.get('code');
 
-        console.log(params);
-        console.log(code);
+        if (code) {
+            this.getTokens(code);
+        }
 
-        this.getTokens(code);
+        
     }
 
     async getTokens(code) {
-        const data = await DiscItApi.getTokens(code);
+        const data = await BackendApi.getTokens(code);
         /* handle error here */
-
+        console.log(data);
         if (data.access_token) {
             this.setLocalSession(data);
         } else if (localStorage.getItem('access_token') && localStorage.getItem('refresh_token')) {
-            window.location = '/discover';
+            window.location = '/';
         } else {
         // TODO: Display error somewhere
-            window.location = '/';
+            window.location = '/error';
         }
     }
 
@@ -37,7 +38,7 @@ class LoginCallbackPage extends React.Component {
         /* later consider adding epoch time of expiry so we can refresh before making a request */
         const expiry = new Date().getTime() + data.expires_in * 1000;
         localStorage.setItem('expiry_epoch', expiry);
-        window.location = '/discover';
+        window.location = '/';
     }
 
     render() {

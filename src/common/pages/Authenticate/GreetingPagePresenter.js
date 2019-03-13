@@ -1,8 +1,8 @@
-import { DiscItApi } from '../../../api/discit-api/DiscItApi';
+import { BackendApi } from '../../../api/backend-api';
 
 export class GreetingPagePresenter {
     static linkButtonClicked() {
-        DiscItApi.sendLoginRequest()
+        BackendApi.sendLoginRequest()
             .then((response) => {
                 window.location = response;
             })

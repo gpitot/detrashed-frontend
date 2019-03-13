@@ -2,7 +2,7 @@ import { BaseRequest } from '../BaseRequest';
 
 const BACKEND_PORT = 8888;
 
-export class DiscItApi {
+export class BackendApi {
     static async sendLoginRequest() {
         return BaseRequest.sendGetRequest(`http://localhost:${BACKEND_PORT}/user/login/`);
     }

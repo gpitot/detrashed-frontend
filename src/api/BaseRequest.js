@@ -7,6 +7,7 @@ class BaseRequest {
                 'Content-Type': 'application/json',
             };
         }
+        console.log(headers);
         try {
             const data = await fetch(urlString, {
                 method: 'get',
