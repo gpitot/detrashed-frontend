@@ -1,7 +1,7 @@
 import { BaseRequest } from '../BaseRequest';
 
 const ENDPOINT = 'http://localhost:8888';
-const ORG_ID = 211400854345;
+
 
 class MeetupApi {
     static getHeaders() {
@@ -19,6 +19,21 @@ class MeetupApi {
     }
 
    
+    static async createEvent(location, startdate) {
+        const headers = this.getHeaders();
+        const url = `${ENDPOINT}/events/create`;
+        const body = {
+            location : {
+                address : {
+                    longitude : location.lng,
+                    latitude : location.lat
+                },
+                name : 'do this server side'
+            },
+            start_time : startdate
+        }
+        return BaseRequest.sendPostRequest(url, body, headers);
+    }
 }
 
 export { MeetupApi };

@@ -9,8 +9,7 @@ class CreateEvent extends Component {
     constructor(props) {
         super(props);
 
-        const d = new Date();
-        //const startdate = `${d.getUTCFullYear()}-${this.fullDate(d.getUTCMonth())}-${this.fullDate(d.getUTCDate())}T09:00`;
+        
         const startdate = this.getStartDate();
 
         this.state = {
@@ -55,7 +54,9 @@ class CreateEvent extends Component {
     }
 
     async Create() {
-        const res = await MeetupApi.createEvent();
+        const location = this.props.mapClicked.latlng;
+        const startdate = this.state.startdate;
+        const res = await MeetupApi.createEvent(location, startdate);
         console.log(res);
     }
 
@@ -104,7 +105,9 @@ class CreateEvent extends Component {
                 <Event style={{left:`${eventX}px`, top: `${eventY}px`, display}}>
                     {
                         this.state.confirming &&
-                        <Confirm src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/480px-Light_green_check.svg.png'}/>
+                        <Confirm 
+                            onClick = {this.Create}
+                            src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/480px-Light_green_check.svg.png'}/>
                     }
                 </Event>
             </React.Fragment>
