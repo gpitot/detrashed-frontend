@@ -19,8 +19,9 @@ class Mappable extends Component {
         //if confirmed then set location 
     }
 
+    
+
     render() {
-        console.log(this.props.events);
         const position = [this.state.lat, this.state.lng];
         return (
             <Map 
@@ -28,7 +29,7 @@ class Mappable extends Component {
                 zoom={this.state.zoom} 
                 style={{height:'100vh', zIndex:1}}
 
-                onClick={this.handleClick}
+                onClick={this.props.handleClick}
             >
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -39,7 +40,7 @@ class Mappable extends Component {
                         if (event.venue === null) return null;
                         const eventpos = [event.venue.address.latitude, event.venue.address.longitude];
                         return (
-                            <Marker position={eventpos}>
+                            <Marker position={eventpos} key={event.id}>
                                 <Popup>
                                     <EventInfo event={event} />
                                 </Popup>

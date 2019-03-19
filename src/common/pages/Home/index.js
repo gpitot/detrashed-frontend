@@ -15,7 +15,8 @@ import {MeetupApi} from '../../../api/meetup-api'
 class Home extends Component {
 
     state = {
-       events : []
+       events : [],
+       mapClicked : null,
     }
 
     componentDidMount() {
@@ -29,15 +30,19 @@ class Home extends Component {
             console.log(events);
             this.setState({events})
         }
-        
+    }
+
+    handleClick = (e) => {
+        console.log(e);
+        this.setState({mapClicked : e})
     }
 
     render() {
         
         return (
             <Area>
-                <Mappable events={this.state.events} />
-                <CreateEvent />
+                <Mappable events={this.state.events} handleClick={this.handleClick} />
+                <CreateEvent mapClicked={this.state.mapClicked} />
                 
                 <Authenticate />
             </Area>
