@@ -29,6 +29,9 @@ class Home extends Component {
         if (events) {
             console.log(events);
             this.setState({events})
+        } else {
+            console.log("NO EVENTS")
+            localStorage.removeItem('access_token')
         }
     }
 
