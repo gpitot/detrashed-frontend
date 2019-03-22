@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { BaseRequest } from '../BaseRequest';
 
 const ENDPOINT = 'http://localhost:8888';
@@ -20,6 +21,12 @@ class MeetupApi {
 
    
     static async createEvent(location, startdate) {
+        
+        startdate = moment(startdate);
+        startdate = moment.utc(startdate);
+        
+        startdate = startdate.format()
+        
         const headers = this.getHeaders();
         const url = `${ENDPOINT}/events/create`;
         const body = {
@@ -28,7 +35,8 @@ class MeetupApi {
                     longitude : location.lng,
                     latitude : location.lat
                 },
-                name : 'do this server side'
+                name : location.name,
+                summary : location.summary
             },
             start_time : startdate
         }

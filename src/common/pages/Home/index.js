@@ -32,6 +32,12 @@ class Home extends Component {
         }
     }
 
+    addEvent =(event)=>{
+        const events = [...this.state.events];
+        events.push(event);
+        this.setState({events})
+    }
+
     handleClick = (e) => {
         console.log(e);
         this.setState({mapClicked : e})
@@ -42,7 +48,10 @@ class Home extends Component {
         return (
             <Area>
                 <Mappable events={this.state.events} handleClick={this.handleClick} />
-                <CreateEvent mapClicked={this.state.mapClicked} />
+                <CreateEvent 
+                    mapClicked={this.state.mapClicked} 
+                    addEvent = {this.addEvent}
+                />
                 
                 <Authenticate />
             </Area>

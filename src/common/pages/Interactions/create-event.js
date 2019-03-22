@@ -17,7 +17,10 @@ class CreateEvent extends Component {
             selecting : false,
             confirming:false,
 
-            startdate : startdate
+            name : '',
+            summary : '',
+            startdate : startdate,
+            error_message : ''
         }
         this.Create = this.Create.bind(this);
     }
@@ -54,10 +57,41 @@ class CreateEvent extends Component {
     }
 
     async Create() {
-        const location = this.props.mapClicked.latlng;
+
+        if (this.state.name.length < 1) {
+            this.setState({error_message : "Please enter a name for the event"});
+            return;
+        }
+
+        if (this.state.summary.length < 1) {
+            this.setState({error_message : "Please enter a summary for the event"});
+            return;
+        }
+
+        let location = this.props.mapClicked.latlng;
+        location.name = this.state.name;
+        location.summary = this.state.summary;
+        
         const startdate = this.state.startdate;
         const res = await MeetupApi.createEvent(location, startdate);
         console.log(res);
+        if (res.err !== undefined) {
+            this.setState({error_message:res.err});
+            return
+        }
+        try {
+            const event = res.event;
+            event.venue = res.venue;
+            this.props.addEvent(event);
+            this.setState({
+                createOpen:false,
+                selecting : false,
+                confirming : false
+            })
+        } catch(err) {
+            console.log(err);
+        }
+        
     }
 
     toggleEvent = () => {
@@ -92,7 +126,21 @@ class CreateEvent extends Component {
                 <CreateArea>
                     <CloseBtn onClick={this.toggleEvent}/>
                     <h3>Select a location on the map</h3>
+                    <Error>{this.state.error_message}</Error>
+                    <Input 
+                        type = 'text' 
+                        name = 'name' 
+                        onChange={this.handleChange} 
+                        value={this.state.name} 
+                        placeholder="Event name"    
+                    />
 
+                    <Summary 
+                        name = 'summary' 
+                        onChange={this.handleChange} 
+                        value={this.state.summary} 
+                        placeholder = "Event description... consider adding your email or phone number so that interested members can contact you for further details"
+                    />
 
                     <Calender type="datetime-local"
                         name="startdate"
@@ -123,7 +171,7 @@ const Closed = styled.div`
     z-index:4;
     padding:15px;
     color: #3e603e;
-    background: #2cea05;
+    background: #eee;
     font-size:20px;
     border:solid 2px #3e603e;
     border-radius:5px;
@@ -141,11 +189,13 @@ const Closed = styled.div`
 
 const CreateArea = styled(Closed)`
 
-
+    width:300px;
 
 `;
 
-const Calender = styled.input``;
+const Calender = styled.input`
+    width:100%;
+`;
 
 const CloseBtn = styled.div`
     position:absolute;
@@ -190,5 +240,16 @@ const Confirm = styled.img`
     transform:translate(-50%, -50%);
     display:block;
 `;
+
+
+const Input = styled.input`
+    width:100%;
+`
+const Summary = styled.textarea``;
+
+const Error = styled.div`
+    color:red;
+`;
+
 
 export default CreateEvent;
