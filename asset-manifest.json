@@ -1,13 +1,13 @@
 {
-  "main.css": "/detrashed/static/css/main.4c854e86.chunk.css",
-  "main.js": "/detrashed/static/js/main.0ac9ee35.chunk.js",
-  "main.js.map": "/detrashed/static/js/main.0ac9ee35.chunk.js.map",
-  "runtime~main.js": "/detrashed/static/js/runtime~main.b590fe45.js",
-  "runtime~main.js.map": "/detrashed/static/js/runtime~main.b590fe45.js.map",
-  "static/js/2.66bfccb3.chunk.js": "/detrashed/static/js/2.66bfccb3.chunk.js",
-  "static/js/2.66bfccb3.chunk.js.map": "/detrashed/static/js/2.66bfccb3.chunk.js.map",
-  "index.html": "/detrashed/index.html",
-  "precache-manifest.8c518cc8fdb388790ac0e7375d6c595b.js": "/detrashed/precache-manifest.8c518cc8fdb388790ac0e7375d6c595b.js",
-  "service-worker.js": "/detrashed/service-worker.js",
-  "static/css/main.4c854e86.chunk.css.map": "/detrashed/static/css/main.4c854e86.chunk.css.map"
+  "main.css": "/detrashed-frontend/static/css/main.4c854e86.chunk.css",
+  "main.js": "/detrashed-frontend/static/js/main.59fb625c.chunk.js",
+  "main.js.map": "/detrashed-frontend/static/js/main.59fb625c.chunk.js.map",
+  "runtime~main.js": "/detrashed-frontend/static/js/runtime~main.078ea2ef.js",
+  "runtime~main.js.map": "/detrashed-frontend/static/js/runtime~main.078ea2ef.js.map",
+  "static/js/2.09c15a59.chunk.js": "/detrashed-frontend/static/js/2.09c15a59.chunk.js",
+  "static/js/2.09c15a59.chunk.js.map": "/detrashed-frontend/static/js/2.09c15a59.chunk.js.map",
+  "index.html": "/detrashed-frontend/index.html",
+  "precache-manifest.bce261a0abbd62dd5b5259543993ac30.js": "/detrashed-frontend/precache-manifest.bce261a0abbd62dd5b5259543993ac30.js",
+  "service-worker.js": "/detrashed-frontend/service-worker.js",
+  "static/css/main.4c854e86.chunk.css.map": "/detrashed-frontend/static/css/main.4c854e86.chunk.css.map"
 }
