@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "22e795f4233fa4d4fb7a",
-    "url": "/detrashed-frontend/static/css/main.4c854e86.chunk.css"
+    "revision": "31527817b2b0e42306aa",
+    "url": "/detrashed-frontend/static/css/main.0cb1a92e.chunk.css"
   },
   {
-    "revision": "22e795f4233fa4d4fb7a",
-    "url": "/detrashed-frontend/static/js/main.59fb625c.chunk.js"
+    "revision": "31527817b2b0e42306aa",
+    "url": "/detrashed-frontend/static/js/main.649db270.chunk.js"
   },
   {
     "revision": "b0f0bb7d88b6b8f88ea0",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/detrashed-frontend/static/js/2.09c15a59.chunk.js"
   },
   {
-    "revision": "e5c060ad2d418f43ba9f156246957fa2",
+    "revision": "2faba3f263369e810fee03088d3f96d4",
     "url": "/detrashed-frontend/index.html"
   }
 ];
