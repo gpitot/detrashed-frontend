@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/detrashed-frontend/precache-manifest.528386bb55f0bc47b1fed6095d75d3d4.js"
+  "/detrashed-frontend/precache-manifest.81c140ac49482e0d0c2d7db0086c44d5.js"
 );
 
 workbox.clientsClaim();
