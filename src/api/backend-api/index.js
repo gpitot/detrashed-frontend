@@ -1,10 +1,10 @@
 import { BaseRequest } from '../BaseRequest';
 
-const BACKEND_PORT = 8888;
+const ENDPOINT = 'https://detrashed-backend.herokuapp.com';
 
 export class BackendApi {
     static async sendLoginRequest() {
-        return BaseRequest.sendGetRequest(`http://localhost:${BACKEND_PORT}/user/login/`);
+        return BaseRequest.sendGetRequest(`${ENDPOINT}/user/login/`);
     }
 
 
@@ -12,6 +12,6 @@ export class BackendApi {
         const body = {
             code,
         };
-        return BaseRequest.sendPostRequest(`http://localhost:${BACKEND_PORT}/user/access/`, body);
+        return BaseRequest.sendPostRequest(`${ENDPOINT}/user/access/`, body);
     }
 }

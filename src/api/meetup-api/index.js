@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { BaseRequest } from '../BaseRequest';
 
-const ENDPOINT = 'http://localhost:8888';
+const ENDPOINT = 'https://detrashed-backend.herokuapp.com';
 
 
 class MeetupApi {

@@ -9,7 +9,7 @@ import Authenticate from '../Authenticate';
 
 import CreateEvent from '../Interactions/create-event.js';
 import {MeetupApi} from '../../../api/meetup-api'
-
+import LoginCallbackPage from '../LoginCallback/LoginCallbackPage'
 
 
 class Home extends Component {
@@ -48,6 +48,12 @@ class Home extends Component {
 
     render() {
         
+        const code = new URLSearchParams(window.location.search).get('code');
+        if (code) {
+            return <LoginCallbackPage />
+        }
+
+
         return (
             <Area>
                 <Mappable events={this.state.events} handleClick={this.handleClick} />

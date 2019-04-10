@@ -25,10 +25,10 @@ class LoginCallbackPage extends React.Component {
         if (data.access_token) {
             this.setLocalSession(data);
         } else if (localStorage.getItem('access_token') && localStorage.getItem('refresh_token')) {
-            window.location = '/';
+            window.location = `${process.env.PUBLIC_URL}/`;
         } else {
         // TODO: Display error somewhere
-            window.location = '/error';
+            window.location = `${process.env.PUBLIC_URL}/error`;
         }
     }
 
@@ -38,7 +38,7 @@ class LoginCallbackPage extends React.Component {
         /* later consider adding epoch time of expiry so we can refresh before making a request */
         const expiry = new Date().getTime() + data.expires_in * 1000;
         localStorage.setItem('expiry_epoch', expiry);
-        window.location = '/';
+        window.location = `${process.env.PUBLIC_URL}/`;
     }
 
     render() {
