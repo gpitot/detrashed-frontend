@@ -19,6 +19,7 @@ class LoginCallbackPage extends React.Component {
     }
 
     async getTokens(code) {
+        console.log(code);
         const data = await BackendApi.getTokens(code);
         /* handle error here */
         console.log(data);
